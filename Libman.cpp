@@ -35,7 +35,7 @@ int main()
     cout<<" ( A )       Add Books"<<endl;
     cout<<" ( S )       See All Books"<<endl;
     cout<<" ( D )       Delete Books"<<endl;
-    cout<<" ( S )       Short Books(Price)"<<endl;
+    cout<<" ( P )       Short Books(Price)"<<endl;
 
     char s;
     cin>>s;
@@ -44,6 +44,8 @@ int main()
     void add();
     void see();
     void wash();
+    void arrange();
+    void infographic();
 
 
     switch (s)
@@ -57,8 +59,8 @@ int main()
             case 'D' :
             case 'd' : wash(); break;
 
-   // case 'X' :
-  //  case 'x' : shortr(); break;
+            case 'p' :
+            case 'P' : arrange(); break;
             default:
                 getch();
       }
@@ -77,10 +79,10 @@ int main()
        for(i = 0; i<n; i++)
        {
 
-           system("cls");
+           
            cout<<"     "<<books[i].bookName<<"             "<<books[i].authorName<<"               "<<books[i].price<<"                "<<books[i].year<<endl;
        }
-       cout<<"Press Enter to go main";
+       cout<<":";
 
 getch();
     }
@@ -90,7 +92,7 @@ getch();
     {
         system("cls");
         char ch;
-
+        bool f = true;
         do
         {
         system("cls");
@@ -107,7 +109,11 @@ getch();
         cin>>books[n].year;
 
         //To the Next Struct
-        n++;
+        if(f == true)
+        {
+          n++;
+        }
+        
 
         cout<<"Do you wan to add more book? [y/n]";
         ch = getch();
@@ -117,7 +123,26 @@ getch();
 
     }
 
+    //only for showing info of 
+    //Current Books
+    //After Deleting from shelf
+    //shpwing rest of the books
+    int infographic()
+    {
 
+       static int i = 0;
+       system("cls");
+       cout<<"All Books in Digital Shelf"<<endl;
+       cout<<"   Book Name    "<<"    Author Name    "<< "     Price     "<<"     Year     "<<endl;
+       for(i = 0; i<n; i++)
+       {
+           cout<<"     "<<books[i].bookName<<"             "<<books[i].authorName<<"               "<<books[i].price<<"                "<<books[i].year<<endl;
+       }
+
+    }
+
+
+   //This function made for remove books
     int wash()
     {
       system("cls");
@@ -125,29 +150,42 @@ getch();
       static int k ;
       static int i = 0;
        system("cls");
-       see();
+
+       //Calling this function before deleting any of book
+       infographic();
 
         cout<<"Whic book do you want to delete?";
        cin>>k;
         do
        {
+           //Setting Book info to be empty
            books[k].bookName = '\0';
            books[k].authorName = '\0';
            books[k].price = '\0';
            books[k].year = '\0';
-           cout<<"Successfully Deleted !";
+           cout<<"Book Deleted :"<<k<<endl;
+
+           //After Deleting Books from shelf
+           infographic();
+
+
+           
+           cout<<"Press N to go Main Menu";
            ch = getch();
-           see(); 
        }
        while(ch != 'n' && ch != 'N');
 
     }
 
-    int shortr()
+    int arrange()
     {
         system("cls");
         cout<< "Coming Soooooon ! ";
+       
     }
+
+
+
 
 
 
