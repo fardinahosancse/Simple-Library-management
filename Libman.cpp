@@ -137,7 +137,7 @@ getch();
            books[k].year = '\0';
            cout<<"Successfully Deleted !";
            ch = getch();
-           see();
+           see(); 
        }
        while(ch != 'n' && ch != 'N');
 
