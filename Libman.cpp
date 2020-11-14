@@ -169,7 +169,7 @@ getch();
            infographic();
 
 
-           
+
            cout<<"Press N to go Main Menu";
            ch = getch();
        }
@@ -181,6 +181,7 @@ getch();
     {
         system("cls");
         cout<< "Coming Soooooon ! ";
+        getch();
        
     }
 
