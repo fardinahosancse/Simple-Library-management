@@ -21,6 +21,7 @@ struct book //Book Info
       book books[1000]; //Array of structure
       int n = 0;
       int i = 0;
+      int coutofsec=0;
 
 //////////////////////////////////
 int main()
@@ -112,6 +113,7 @@ getch();
         if(f == true)
         {
           n++;
+          coutofsec++;
         }
         
 
@@ -180,7 +182,36 @@ getch();
     int arrange()
     {
         system("cls");
-        cout<< "Coming Soooooon ! ";
+        cout<<"Books : "<<coutofsec;
+        
+      int i,j,temp =0;
+
+      //For Shorting to Most Price one to Low Price One 
+      for(i= 0; i<coutofsec-1;i++)
+      {
+          int flag = 0;
+          for(j = 0; j<coutofsec-1-i;j++)
+          {
+              if(books[j].price < books[j+1].price)
+              {
+             temp = books[j].price;
+             books[j].price = books[j+1].price;
+             books[j+1].price = temp;
+             flag = 1;
+              }
+            
+          }
+          if(flag == 0)
+          break;
+      }
+
+     //Showing After Showing 
+     //Calling infographic
+      infographic();
+
+
+
+
         getch();
        
     }
