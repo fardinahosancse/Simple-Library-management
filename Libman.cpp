@@ -83,7 +83,7 @@ int main()
            
            cout<<"     "<<books[i].bookName<<"             "<<books[i].authorName<<"               "<<books[i].price<<"                "<<books[i].year<<endl;
        }
-       cout<<":";
+       cout<<"Press Any Button to Go Back to The Menu";
 
 getch();
     }
@@ -184,7 +184,8 @@ getch();
         system("cls");
         cout<<"Books : "<<coutofsec;
         
-      int i,j,temp =0;
+      int i,j;
+      book temp ;
 
       //For Shorting to Most Price one to Low Price One 
       for(i= 0; i<coutofsec-1;i++)
@@ -194,9 +195,10 @@ getch();
           {
               if(books[j].price < books[j+1].price)
               {
-             temp = books[j].price;
-             books[j].price = books[j+1].price;
-             books[j+1].price = temp;
+             temp = books[j];
+             books[j] = books[j+1];
+             books[j+1] = temp;
+             
              flag = 1;
               }
             
@@ -208,8 +210,6 @@ getch();
      //Showing After Showing 
      //Calling infographic
       infographic();
-
-
 
 
         getch();
